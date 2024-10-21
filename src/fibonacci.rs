@@ -1,4 +1,4 @@
-pub fn fibonacci_number(n: i32) -> i32 {
+pub fn fibonacci_number(n: usize) -> usize {
     match n {
         0 => 0,
         1 => 1,
