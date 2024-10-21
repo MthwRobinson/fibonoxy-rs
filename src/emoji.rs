@@ -6,12 +6,10 @@ enum Emoji {
 }
 
 fn name_to_emoji(name: &str) -> Emoji {
-    if name == "ox" {
-        Emoji::Ox
-    } else if name == "camel" {
-        Emoji::Camel
-    } else {
-        Emoji::Unknown
+    match name {
+        "ox" => Emoji::Ox,
+        "camel" => Emoji::Camel,
+        _ => Emoji::Unknown,
     }
 }
 
