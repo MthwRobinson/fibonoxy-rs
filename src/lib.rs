@@ -1,2 +1,2 @@
-mod emoji;
-mod fibonacci;
+pub mod emoji;
+pub mod fibonacci;

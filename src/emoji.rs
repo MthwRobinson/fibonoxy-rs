@@ -1,11 +1,11 @@
 #[derive(PartialEq, Debug)]
-enum Emoji {
+pub enum Emoji {
     Ox,
     Camel,
     Unknown,
 }
 
-fn name_to_emoji(name: &str) -> Emoji {
+pub fn name_to_emoji(name: &str) -> Emoji {
     match name {
         "ox" => Emoji::Ox,
         "camel" => Emoji::Camel,
@@ -13,7 +13,7 @@ fn name_to_emoji(name: &str) -> Emoji {
     }
 }
 
-fn emoji_code(emoji: Emoji) -> String {
+pub fn emoji_code(emoji: Emoji) -> String {
     match emoji {
         Emoji::Ox => String::from("\u{1F402}"),
         Emoji::Camel => String::from("\u{1F42A}"),
