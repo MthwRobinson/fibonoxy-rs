@@ -4,6 +4,12 @@ pub struct Emoji<'a> {
     code: &'a str,
 }
 
+impl Emoji<'_> {
+    pub fn emoji_code<'a>(&'a self) -> &'a str {
+        &self.code
+    }
+}
+
 const UNKNOWN: Emoji = Emoji {
     name: "unknown",
     code: "\u{1F937}",
@@ -28,10 +34,6 @@ pub fn name_to_emoji(name: &str) -> &Emoji {
         }
     }
     &UNKNOWN
-}
-
-pub fn emoji_code<'a>(emoji: &'a Emoji) -> &'a str {
-    &emoji.code
 }
 
 #[cfg(test)]
