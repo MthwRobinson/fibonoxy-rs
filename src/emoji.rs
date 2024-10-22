@@ -4,25 +4,30 @@ pub struct Emoji<'a> {
     code: &'a str,
 }
 
-const OX: Emoji = Emoji {
-    name: "ox",
-    code: "\u{1F402}",
-};
-const CAMEL: Emoji = Emoji {
-    name: "camel",
-    code: "\u{1F42A}",
-};
 const UNKNOWN: Emoji = Emoji {
     name: "unknown",
     code: "\u{1F937}",
 };
 
+const EMOJIS: &'static [&Emoji] = &[
+    &Emoji {
+        name: "ox",
+        code: "\u{1F402}",
+    },
+    &Emoji {
+        name: "camel",
+        code: "\u{1F42A}",
+    },
+    &UNKNOWN,
+];
+
 pub fn name_to_emoji(name: &str) -> &Emoji {
-    match name {
-        "ox" => &OX,
-        "camel" => &CAMEL,
-        _ => &UNKNOWN,
+    for emoji in EMOJIS {
+        if emoji.name == name {
+            return emoji;
+        }
     }
+    &UNKNOWN
 }
 
 pub fn emoji_code<'a>(emoji: &'a Emoji) -> &'a str {
